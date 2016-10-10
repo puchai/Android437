@@ -34,44 +34,44 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Fab clicked", Toast.LENGTH_LONG).show();
             }
         });
-        setupUI(mockData(todos));
-//        adapter = new TodoListAdapter(this, todos);
-//        ((ListView) findViewById(R.id.main_list_view)).setAdapter(adapter);
+        todos = mockData();
+        adapter = new TodoListAdapter(this, todos);
+        ((ListView) findViewById(R.id.main_list_view)).setAdapter(adapter);
 
     }
 
-    private void setupUI(@NonNull List<Todo> todos) {
-        ListView listView = (ListView) findViewById(R.id.main_list_view);
-        listView.setAdapter(new TodoListAdapter(this, todos));
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQ_CODE_TODO_EDIT && resultCode == Activity.RESULT_OK) {
-            String todoId = data.getStringExtra(EventsEditActivity.KEY_EVENT_ID);
-            if (todoId != null) {
-                //deleteTodo(todoId);
-            } else {
-                Todo todo = data.getParcelableExtra(EventsEditActivity.KEY_EVENT);
-                //updateTodo(todo);
-            }
-        }
-    }
+//    private void setupUI(@NonNull List<Todo> todos) {
+//        ListView listView = (ListView) findViewById(R.id.main_list_view);
+//        listView.setAdapter(new TodoListAdapter(this, todos));
+//    }
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode == REQ_CODE_TODO_EDIT && resultCode == Activity.RESULT_OK) {
+//            String todoId = data.getStringExtra(EventsEditActivity.KEY_EVENT_ID);
+//            if (todoId != null) {
+//                //deleteTodo(todoId);
+//            } else {
+//                Todo todo = data.getParcelableExtra(EventsEditActivity.KEY_EVENT);
+//                //updateTodo(todo);
+//            }
+//        }
+//    }
 
     @NonNull
-    private List<Todo> mockData(List <Todo> todos) {
-
+    private List<Todo> mockData() {
+        List<Todo> list = new ArrayList<>();
         Todo todo1 = new Todo("CSE131");
         Todo todo2 = new Todo("CSE132");
         Todo todo3 = new Todo("CSE247");
         Todo todo4 = new Todo("CSE332");
         Todo todo5 = new Todo("CSE437");
-        todos.add(todo1);
-        todos.add(todo2);
-        todos.add(todo3);
-        todos.add(todo4);
-        todos.add(todo5);
-        return todos;
+        list.add(todo1);
+        list.add(todo2);
+        list.add(todo3);
+        list.add(todo4);
+        list.add(todo5);
+        return list;
     }
 }

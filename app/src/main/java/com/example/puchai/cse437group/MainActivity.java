@@ -45,33 +45,45 @@ public class MainActivity extends AppCompatActivity {
 //        listView.setAdapter(new TodoListAdapter(this, todos));
 //    }
 //
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == REQ_CODE_TODO_EDIT && resultCode == Activity.RESULT_OK) {
-//            String todoId = data.getStringExtra(EventsEditActivity.KEY_EVENT_ID);
-//            if (todoId != null) {
-//                //deleteTodo(todoId);
-//            } else {
-//                Todo todo = data.getParcelableExtra(EventsEditActivity.KEY_EVENT);
-//                //updateTodo(todo);
-//            }
-//        }
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQ_CODE_TODO_EDIT && resultCode == Activity.RESULT_OK) {
+            String todoId = data.getStringExtra(EventsEditActivity.KEY_EVENT_ID);
+            if (todoId != null) {
+                //deleteTodo(todoId);
+            } else {
+                Todo todo = data.getParcelableExtra(EventsEditActivity.KEY_EVENT);
+                //updateTodo(todo);
+            }
+        }
+    }
 
     @NonNull
+//    private List<Todo> mockData() {
+//        List<Todo> list = new ArrayList<>();
+//        Todo todo1 = new Todo("CSE131");
+//        Todo todo2 = new Todo("CSE132");
+//        Todo todo3 = new Todo("CSE247");
+//        Todo todo4 = new Todo("CSE332");
+//        Todo todo5 = new Todo("CSE437");
+//        list.add(todo1);
+//        list.add(todo2);
+//        list.add(todo3);
+//        list.add(todo4);
+//        list.add(todo5);
+//        return list;
+//    }
+    //    }
     private List<Todo> mockData() {
         List<Todo> list = new ArrayList<>();
-        Todo todo1 = new Todo("CSE131");
-        Todo todo2 = new Todo("CSE132");
-        Todo todo3 = new Todo("CSE247");
-        Todo todo4 = new Todo("CSE332");
-        Todo todo5 = new Todo("CSE437");
+        Todo todo1 = new Todo("Lopatal 214: HW2 discussion");
+        Todo todo2 = new Todo("Lopatal 222: Midterm Review");
+        Todo todo3 = new Todo("DUC: Lecture Review");
         list.add(todo1);
         list.add(todo2);
         list.add(todo3);
-        list.add(todo4);
-        list.add(todo5);
         return list;
     }
+
 }

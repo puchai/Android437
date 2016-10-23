@@ -11,7 +11,6 @@ import android.widget.Toast;
 import com.example.puchai.cse437group.models.Todo;
 
 import java.util.List;
-
 /**
  * Created by puchai on 10/17/16.
  */
